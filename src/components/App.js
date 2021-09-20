@@ -1,7 +1,7 @@
 import React  from 'react';
 // import ReactDOM from 'react-dom';
 // import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Comment from './Comment';
 import Card from './Card';
 import Link from './Links';
@@ -9,14 +9,23 @@ import Route from './Route';
 import ChildToParent from './ChildToParent';
 import CallApi from './CallApi';
 import Posts from './Posts';
+import Dropdown from './Dropdown';
 
 class App  extends React.Component {
 
-  state = {commentText: ''};
+  state = {commentText: '', dropdownVal:[]};
+
+  options = [
+    {text:'Allahabad', value:'ald'},
+    {text:'Varanasi', value:'vn'},
+    {text:'Noida', value:'nd'},
+  ]
 
   render() {
     return (
+    
     <div>
+     
     <div className="ui secondary pointing menu">
       <Link href="/" className="App-link">Home</Link>
       <Link href="/comments" className="App-link">Comments(Parent to Child - Input)</Link>
@@ -26,6 +35,7 @@ class App  extends React.Component {
       <Link href="/hooks" className="App-link">Understanding Hooks</Link>
       <Link href="/appdeployment" className="App-link">Deployement of React App</Link>
       <Link href="/redux" className="App-link">Api Call using redux</Link>
+      <Link href="/customdropdown" className="App-link">Custom Dropdown</Link>
     </div>
      <div>
      <Route path="/">
@@ -43,6 +53,7 @@ class App  extends React.Component {
         <Link href="/hooks" className="item">Understanding Hooks</Link>
         <Link href="/appdeployment" className="item">Deploying a React App</Link>
         <Link href="/redux" className="item">Api Call using redux</Link>
+        <Link href="/customdropdown" className="item">Custom Dropdown</Link>
       </div>
        </Route>
       <Route path="/comments">
@@ -80,6 +91,14 @@ class App  extends React.Component {
       </Route>
       <Route path="/redux">
           <Posts/>
+      </Route>
+      <Route path="/customdropdown">
+          <Dropdown options={this.options} multi={false} onSelect={value=>this.setState({dropdownVal: value})}/>
+          <div>
+            Selected Text : {this.state.dropdownVal}
+            <br/>
+            Note: this is on initial stage of development with configurable properties
+          </div>
       </Route>
      </div>
     </div>

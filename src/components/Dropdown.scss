@@ -1,0 +1,60 @@
+
+%transition {transition: background .35s ease;}
+
+.dropdown {
+    margin: 10em auto;
+    width: 14.5em;
+    border: .1em solid #c0cdd1;
+
+    &-link {
+        display: block;
+        padding: .5em;
+        color: #000;
+        text-decoration: none;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        @extend %transition;
+        &:focus,
+        &:hover {background: #ecf0f1;}
+        &:active {background: #fbfcfc;}
+    }
+
+    &-optionhead-hidden {
+        display: none;
+        border-top: .1em solid #c0cdd1;
+    }
+
+    &-optionhead-open {
+        border-top: .1em solid #c0cdd1;
+        list-style-type: none;
+        margin: auto;
+        z-index: 1;
+        position: absolute;
+        width: 14.5em;
+        padding: 0;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+
+    &-option {
+        padding: .5em;
+        z-index: 1;
+        cursor: pointer;
+        @extend %transition;
+        &:not(:first-child) {
+          border-top: .1em dashed #dde4e6;
+        }
+        &:focus,
+        &:hover {background: #ecf0f1;}
+        &:active {background: #fbfcfc;}
+    }
+
+    &-checkbox {
+        margin: .1em;
+    }
+
+  }
+ 
+  .fa {float: right}
+ 
+  
+  
