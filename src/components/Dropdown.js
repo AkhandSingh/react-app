@@ -34,7 +34,6 @@ class Dropdown extends React.Component {
   }
 
   onOptionSelect(e) {
-    debugger
     let value = '';
     if (this.props.multi) {
       var array = Array.prototype.slice.call( this.UlRef.current.childNodes);
