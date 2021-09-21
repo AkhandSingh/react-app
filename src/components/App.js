@@ -13,7 +13,7 @@ import Dropdown from './Dropdown';
 
 class App  extends React.Component {
 
-  state = {commentText: '', dropdownVal:[], isDropdownMulti:false};
+  state = {commentText: '', dropdownVal:[], isDropdownMulti:false, dropdownSortable:false, dropdownSearchable: false};
 
   options = [
     {text:'Allahabad', value:'ald'},
@@ -93,9 +93,11 @@ class App  extends React.Component {
           <Posts/>
       </Route>
       <Route path="/customdropdown">
-          Dropdown Is Multiple: <input type="checkbox" onChange={(e)=>{this.setState({isDropdownMulti: e.target.checked})}}/> 
+          Dropdown Multiple: <input type="checkbox" onChange={(e)=>{this.setState({isDropdownMulti: e.target.checked})}}/> 
+          Dropdown Sortable: <input type="checkbox" onChange={(e)=>{this.setState({dropdownSortable: e.target.checked})}}/> 
+          Dropdown Searchable: <input type="checkbox" onChange={(e)=>{this.setState({dropdownSearchable: e.target.checked})}}/> 
           
-          <Dropdown options={this.options} multi={this.state.isDropdownMulti} onSelect={value=>this.setState({dropdownVal: value})}/>
+          <Dropdown options={this.options} multi={this.state.isDropdownMulti} sorting={this.state.dropdownSortable} onSelect={value=>this.setState({dropdownVal: value})}/>
           <div>
             Selected Text : {this.state.dropdownVal}
             <br/>

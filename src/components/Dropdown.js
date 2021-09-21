@@ -25,7 +25,11 @@ class Dropdown extends React.Component {
       //    </select>
 
       <div className="dropdown">
-        <a href="#" className="dropdown-link" onClick={(e) => this.clickMe(e)}>{this.state.selectedValue ? this.state.selectedValue : '-- Select --'}<i className="arrow down icon fa"></i><i className="arrow up icon fa"></i><i className="angle down icon fa"></i></a>
+        <a href="#" className="dropdown-link" onClick={(e) => this.clickMe(e)}>{this.state.selectedValue ? this.state.selectedValue : '-- Select --'}
+          {this.props.sorting && <i className="arrow down icon fa"></i>}
+          {this.props.sorting && <i className="arrow up icon fa"></i>}
+          <i className="angle down icon fa"></i>
+        </a>
         <ul className={this.state.className} ref={this.UlRef}>
           {options}
         </ul>
