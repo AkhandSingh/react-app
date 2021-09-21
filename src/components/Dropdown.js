@@ -26,9 +26,11 @@ class Dropdown extends React.Component {
 
       <div className="dropdown">
         <a href="#" className="dropdown-link" onClick={(e) => this.clickMe(e)}>{this.state.selectedValue ? this.state.selectedValue : '-- Select --'}
-          {this.props.sorting && <i className="arrow down icon fa"></i>}
-          {this.props.sorting && <i className="arrow up icon fa"></i>}
-          <i className="angle down icon fa"></i>
+          <i className="fa">
+          <i className="angle down icon"></i>
+          {this.props.sorting && <i className="arrow up icon"></i>}
+          {this.props.sorting && <i className="arrow down icon"></i>}
+          </i>
         </a>
         <ul className={this.state.className} ref={this.UlRef}>
           {options}
@@ -59,9 +61,10 @@ class Dropdown extends React.Component {
 
   clickMe(e) {
     e.preventDefault();
-    if (e.target.className === 'arrow up icon fa') {
+    debugger
+    if (e.target.className === 'arrow up icon') {
       this.props.options.sort(this.compareAsc);
-    } else if (e.target.className === 'arrow down icon fa') {
+    } else if (e.target.className === 'arrow down icon') {
       this.props.options.sort(this.compareDesc);
     }
 

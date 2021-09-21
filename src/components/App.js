@@ -100,8 +100,6 @@ class App  extends React.Component {
           <Dropdown options={this.options} multi={this.state.isDropdownMulti} sorting={this.state.dropdownSortable} onSelect={value=>this.setState({dropdownVal: value})}/>
           <div>
             Selected Text : {this.state.dropdownVal}
-            <br/>
-            Note: this is on initial stage of development with configurable properties
           </div>
       </Route>
      </div>
