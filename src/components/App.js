@@ -93,11 +93,17 @@ class App  extends React.Component {
           <Posts/>
       </Route>
       <Route path="/customdropdown">
-          Dropdown Multiple: <input type="checkbox" onChange={(e)=>{this.setState({isDropdownMulti: e.target.checked})}}/> 
-          Dropdown Sortable: <input type="checkbox" onChange={(e)=>{this.setState({dropdownSortable: e.target.checked})}}/> 
-          Dropdown Searchable: <input type="checkbox" onChange={(e)=>{this.setState({dropdownSearchable: e.target.checked})}}/> 
+          Dropdown Multiple   : <input type="checkbox" onChange={(e)=>{this.setState({isDropdownMulti: e.target.checked})}}/> <br/>
+          Dropdown Sortable   : <input type="checkbox" onChange={(e)=>{this.setState({dropdownSortable: e.target.checked})}}/> <br/>
+          Dropdown Searchable : <input type="checkbox" onChange={(e)=>{this.setState({dropdownSearchable: e.target.checked})}}/> 
           
-          <Dropdown options={this.options} multi={this.state.isDropdownMulti} sorting={this.state.dropdownSortable} onSelect={value=>this.setState({dropdownVal: value})}/>
+          <Dropdown 
+            options={this.options} 
+            multi={this.state.isDropdownMulti} 
+            search={this.state.dropdownSearchable}
+            sorting={this.state.dropdownSortable} 
+            onSelect={value=>this.setState({dropdownVal: value})}
+          />
           <div>
             Selected Text : {this.state.dropdownVal}
           </div>

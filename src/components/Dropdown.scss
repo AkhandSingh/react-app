@@ -2,7 +2,7 @@
 %transition {transition: background .35s ease;}
 
 .dropdown {
-    margin: 10em auto;
+    margin: 5em auto;
     width: 20em;
     border: .1em solid #c0cdd1;
 
@@ -11,8 +11,28 @@
         padding: .5em;
         color: #000;
         text-decoration: none;
-        overflow:hidden;
-        text-overflow: ellipsis;
+        @extend %transition;
+        &:focus,
+        &:hover {background: #ecf0f1;}
+        &:active {background: #fbfcfc;}
+    }
+    &-div {
+        display: block;
+        color: #000;
+        text-decoration: none;
+        @extend %transition;
+        &:focus,
+        &:hover {background: #ecf0f1;}
+        &:active {background: #fbfcfc;}
+    }
+
+    &-input {
+        width: 100%;   
+        display: block;
+        padding: .5em;
+        color: #000;
+        text-decoration: none;
+        border: none;
         @extend %transition;
         &:focus,
         &:hover {background: #ecf0f1;}
@@ -52,9 +72,19 @@
         margin: .1em;
     }
 
+    &-icon {
+        float: right;
+    }
+
+    &-icon-input {
+        float: right;
+        margin-top: -1.7em;
+    }
+
   }
  
-  .fa {float: right}
+
+
  
   
   
