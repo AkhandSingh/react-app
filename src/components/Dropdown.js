@@ -39,7 +39,7 @@ class Dropdown extends React.Component {
     // }
     if (this.props.search) {
       return (
-        <a className="dropdown-div">
+        <div className="dropdown-search">
           <input
             className="dropdown-input"
             type="text"
@@ -50,7 +50,7 @@ class Dropdown extends React.Component {
           <i className="dropdown-icon-input">
             <i className="angle down icon"></i>
           </i>
-        </a>)
+        </div>)
     }
     return (<a href="#" className="dropdown-link" onClick={(e) => this.onSelect(e)}>{this.state.selectedValue ? this.state.selectedValue : "---- Select ----"}
       <i className="dropdown-icon">
