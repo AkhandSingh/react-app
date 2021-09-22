@@ -6,7 +6,7 @@ class Dropdown extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { className: 'dropdown-optionhead-hidden', selectedValue: "", isTextVisible: false, filteredOptions: this.props.options }
+    this.state = { className: 'dropdown-optionhead-hidden', selectedValue: "", filteredOptions: this.props.options }
     this.UlRef = React.createRef();
   }
 
@@ -21,22 +21,6 @@ class Dropdown extends React.Component {
   }
 
   renderMainDropdown() {
-    // if (this.props.search && this.state.isTextVisible) {
-    //   return (<div onClick={(e) => this.onSelect(e)}
-    //     className="dropdown-link">
-    //     <input
-    //       className="dropdown-input"
-    //       type="text"
-    //       placeholder="-- Select --"
-    //       onChange={(e) => this.onFilter(e)}
-    //     />
-    //     <i className="fa">
-    //       <i className="angle down icon"></i>
-    //       {this.props.sorting && <i className="arrow up icon"></i>}
-    //       {this.props.sorting && <i className="arrow down icon"></i>}
-    //     </i>
-    //   </div>)
-    // }
     if (this.props.search) {
       return (
         <div className="dropdown-search">
@@ -47,9 +31,7 @@ class Dropdown extends React.Component {
             onMouseDown={(e) => this.onSelect(e)}
             onChange={(e) => this.onFilter(e)}
           />
-          <i className="dropdown-icon-input">
-            <i className="angle down icon"></i>
-          </i>
+          <i className="angle down icon dropdown-icon-input"></i>
         </div>)
     }
     return (<a href="#" className="dropdown-link" onClick={(e) => this.onSelect(e)}>{this.state.selectedValue ? this.state.selectedValue : "---- Select ----"}
@@ -108,11 +90,7 @@ class Dropdown extends React.Component {
   }
 
   onSelect(e) {
-    //e.preventDefault();
-    // if (this.props.search) {
-    //   this.setState({ isTextVisible: true });
-    // }
-
+    
     if (e.target.className === 'arrow up icon') {
       this.props.options.sort(this.compareAsc);
     } else if (e.target.className === 'arrow down icon') {
